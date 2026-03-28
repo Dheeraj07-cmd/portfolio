@@ -1,55 +1,93 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import axios from 'axios'
+import { useState } from 'react';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('')
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); 
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
+    e.preventDefault();
+    setStatus('loading');
+
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, form)
-      setStatus('success')
-      setForm({ name: '', email: '', message: '' })
-    } catch {
-      setStatus('error')
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
     }
-  }
+  };
 
   return (
-    <section id="contact" className="py-24 px-6 max-w-2xl mx-auto text-center">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <p className="font-mono text-indigo-400 text-sm mb-2">05. What's next?</p>
-        <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
-        <p className="text-neutral-400 mb-10">I'm currently open to opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
-      </motion.div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
-        <input
-          type="text" placeholder="Your Name" required
-          value={form.name} onChange={e => setForm({...form, name: e.target.value})}
-          className="bg-[#161616] border border-[#262626] rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:border-indigo-500 outline-none transition-colors"
-        />
-        <input
-          type="email" placeholder="Your Email" required
-          value={form.email} onChange={e => setForm({...form, email: e.target.value})}
-          className="bg-[#161616] border border-[#262626] rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:border-indigo-500 outline-none transition-colors"
-        />
-        <textarea
-          rows={5} placeholder="Your Message" required
-          value={form.message} onChange={e => setForm({...form, message: e.target.value})}
-          className="bg-[#161616] border border-[#262626] rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:border-indigo-500 outline-none transition-colors resize-none"
-        />
-        <button
-          type="submit" disabled={status === 'sending'}
-          className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 text-white px-8 py-3 rounded-lg transition-all font-medium"
-        >
-          {status === 'sending' ? 'Sending...' : 'Send Message'}
-        </button>
-        {status === 'success' && <p className="text-green-400 text-sm text-center">Message sent successfully!</p>}
-        {status === 'error' && <p className="text-red-400 text-sm text-center">Something went wrong. Try again.</p>}
-      </form>
+    <section id="contact" className="py-32 bg-[#050505] relative overflow-hidden">
+      <div className="max-w-2xl mx-auto px-6 relative z-10 text-center">
+        <p className="text-cyan-400 font-mono mb-4">What's Next?</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
+        <p className="text-slate-400 mb-12 leading-relaxed">
+          I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        </p>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-left max-w-xl mx-auto p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="name" className="text-sm font-mono text-slate-400">Name</label>
+            <input 
+              id="name"
+              required
+              type="text" 
+              value={formData.name}
+              onChange={e => setFormData({...formData, name: e.target.value})}
+              className="bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+            />
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="text-sm font-mono text-slate-400">Email</label>
+            <input 
+              id="email"
+              required
+              type="email" 
+              value={formData.email}
+              onChange={e => setFormData({...formData, email: e.target.value})}
+              className="bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+            />
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="text-sm font-mono text-slate-400">Message</label>
+            <textarea 
+              id="message"
+              required
+              rows="5"
+              value={formData.message}
+              onChange={e => setFormData({...formData, message: e.target.value})}
+              className="bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={status === 'loading'}
+            className="w-full py-4 mt-4 bg-cyan-500/10 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-slate-900 transition-all font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {status === 'loading' ? 'Sending...' : status === 'success' ? 'Message Sent Successfully!' : 'Send Message'}
+          </button>
+          
+          {status === 'error' && (
+             <p className="text-red-400 text-center mt-2 text-sm font-mono">Failed to send. Is the backend running?</p>
+          )}
+        </form>
+      </div>
     </section>
-  )
+  );
 }

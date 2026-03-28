@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController @RequestMapping("/api/contact")
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/contact")
 @RequiredArgsConstructor
 public class ContactController {
-    private  final ContactService contactService;
+
+    private final ContactService contactService;
 
     @PostMapping
-    public ResponseEntity<String> sendMessage(@Valid @RequestBody ContactRequest req){
+    public ResponseEntity<Map<String, String>> sendMessage(@Valid @RequestBody ContactRequest req) {
         contactService.processMessage(req);
-        return ResponseEntity.ok("Message received");
+
+        return ResponseEntity.ok(Map.of("status", "success", "message", "Message received successfully"));
     }
 }

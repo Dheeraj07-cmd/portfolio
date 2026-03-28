@@ -1,55 +1,30 @@
-import { motion } from 'framer-motion'
-
-const skillGroups = [
-  {
-    title: 'Frontend',
-    skills: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'HTML/CSS']
-  },
-  {
-    title: 'Backend',
-    skills: ['Spring Boot', 'Java 21', 'REST APIs', 'Spring Security', 'JPA/Hibernate', 'Maven']
-  },
-  {
-    title: 'Database',
-    skills: ['PostgreSQL', 'MySQL', 'Redis', 'JPA', 'Hibernate', 'Flyway']
-  },
-  {
-    title: 'DevOps & Tools',
-    skills: ['Docker', 'GitHub Actions', 'Git', 'Linux', 'Postman', 'IntelliJ IDEA']
-  }
-]
-
 export default function Skills() {
+  const skills = [
+    "Java", "Spring Boot", "Spring Security", "REST APIs",
+    "JavaScript (ES6+)", "React", "Tailwind CSS", "HTML5/CSS3",
+    "MySQL", "MongoDB", "Docker", "Git/GitHub", "AWS", "Render"
+  ];
+
   return (
-    <section id="skills" className="py-24 px-6 max-w-6xl mx-auto">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <p className="font-mono text-indigo-400 text-sm mb-2">02. What I work with</p>
-        <h2 className="text-3xl font-bold mb-12 text-white">Skills</h2>
-      </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {skillGroups.map((group, i) => (
-          <motion.div
-            key={group.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-[#161616] border border-[#262626] rounded-xl p-6 hover:border-indigo-500/40 transition-colors duration-300"
-          >
-            <h3 className="text-indigo-400 font-mono text-sm font-medium mb-4">{group.title}</h3>
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map(skill => (
-                <span
-                  key={skill}
-                  className="bg-[#1f1f1f] text-neutral-300 text-xs px-3 py-1.5 rounded-full border border-[#333] hover:border-indigo-500/50 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
+    <section id="skills" className="py-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center gap-4 mb-12">
+          <h2 className="text-3xl font-bold text-white">Technical Arsenal</h2>
+          <div className="h-[1px] bg-white/10 flex-grow max-w-xs" />
+        </div>
+        
+        <div className="flex flex-wrap gap-4">
+          {skills.map((skill, index) => (
+            <div 
+              key={index}
+              className="px-5 py-3 bg-white/5 border border-white/10 rounded-lg text-slate-300 hover:border-cyan-400/50 hover:bg-cyan-400/5 hover:-translate-y-1 transition-all duration-300 cursor-default"
+            >
+              <span className="text-cyan-400 mr-2 font-mono">▹</span>
+              {skill}
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
-  )
+  );
 }
