@@ -1,0 +1,35 @@
+export const projectsData = [
+  {
+    id: 1,
+    title: "TradeX Dashboard",
+    tag: "Full-Stack",
+    description: "A comprehensive full-stack trading dashboard project built with modern web technologies, featuring real-time data visualization.",
+    techStack: "React, Spring Boot, MongoDB",
+    githubUrl: "https://github.com/Dheeraj07-cmd",
+    liveUrl: "",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Blood Donation Platform",
+    tag: "Web App",
+    description: "A web-based platform connecting blood donors with recipients, optimizing database relations for efficient matching.",
+    techStack: "HTML, CSS, JSP, Servlet, MySQL",
+    githubUrl: "https://github.com/Dheeraj07-cmd",
+    liveUrl: "https://github.com/Dheeraj07-cmd",
+    imageUrl: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1000&auto=format&fit=crop",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "College Event Hub",
+    tag: "Frontend",
+    description: "An interactive hub for managing and discovering college events, built with a focus on seamless user interfaces.",
+    techStack: "React, Tailwind CSS",
+    githubUrl: "https://github.com/Dheeraj07-cmd",
+    liveUrl: "",
+    imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop",
+    featured: true,
+  }
+];

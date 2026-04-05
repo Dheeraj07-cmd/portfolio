@@ -1,0 +1,50 @@
+import { motion } from "framer-motion";
+import { staggerContainer, fadeInUp } from "../utils/motion";
+import { ArrowRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "../components/ui/SocialIcons"; 
+
+export default function Hero() {
+  return (
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030712] pt-20">
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-150 h-150 bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none" />
+
+      <motion.div 
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl"
+      >
+        <motion.div variants={fadeInUp} className="mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-300 backdrop-blur-sm">
+          Available for new opportunities
+        </motion.div>
+
+        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+          Building the backbones of <br className="hidden md:block" />
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-emerald-400">
+            modern applications.
+          </span>
+        </motion.h1>
+
+        <motion.p variants={fadeInUp} className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
+          Hi, I'm Dheeraj Choudhary. A Full-Stack Developer specializing in Spring Boot and React. I architect scalable systems and craft engaging user experiences.
+        </motion.p>
+
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-4">
+          <a href="#projects" className="group flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#030712] transition-transform hover:scale-105">
+            View My Work
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          
+          <div className="flex gap-4 sm:ml-4">
+            <a href="https://github.com/Dheeraj07-cmd" target="_blank" rel="noreferrer" className="p-4 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-all">
+              <GithubIcon className="w-5 h-5" />
+            </a>
+            <a href="#" className="p-4 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/30 transition-all">
+              <LinkedinIcon className="w-5 h-5" />
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
