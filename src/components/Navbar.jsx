@@ -43,6 +43,12 @@ export default function Navbar() {
         >
           Let's Talk
         </a>
+        <a
+          href="/resume/Dheeraj_Choudhary_Resume.pdf" download
+           className="px-4 py-2 rounded-xl bg-linear-to-r from-blue-600 to-purple-700 text-white text-sm font-medium hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          Download Resume
+        </a>
       </nav>
     </motion.header>
   );
