@@ -14,53 +14,81 @@ export default function Experience() {
       title: "AWS Certified Developer",
       company: "Infosys",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Gained hands-on understanding of cloud-based application development using AWS services.",
+        "Worked with core services like EC2, S3, and IAM for deploying and managing scalable applications.",
+        "Learned best practices for building secure, reliable, and high-performance cloud solutions."
+      ],
       certificate: "/certificates/AWS_Cretificate__Infosys.pdf"
     },
     {
       title: "Software Engineering Job Simulation",
       company: "JPMorgan Chase & Co.",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Completed real-world engineering tasks including REST API development and backend integration.",
+        "Implemented Kafka-based messaging and worked with microservice-style architecture concepts.",
+        "Gained practical exposure to industry-level workflows and financial system design patterns."
+      ],
       certificate: "/certificates/JPMorgan__JobSimulation__Forage.pdf"
     },
     {
       title: "Introduction to Cybersecurity",
       company: "Cisco Networking Academy",
       date: "Completed",
-      details: ["Gained foundational knowledge in cybersecurity concepts, including network security, threat analysis, and secure system practices."],
+      details: [
+        "Understood core cybersecurity principles including threats, vulnerabilities, and attack vectors.",
+        "Learned fundamentals of network security, encryption, and secure communication practices.",
+        "Developed awareness of protecting systems and data in real-world digital environments."
+      ],
       certificate: "/certificates/Cybersecurity_Certificate__Cisco.pdf"
     },
     {
       title: "SQL and Relational Databases",
       company: "Cognitive Class",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Mastered writing complex SQL queries including joins, aggregations, and subqueries.",
+        "Designed and managed relational databases with focus on data integrity and optimization.",
+        "Gained practical knowledge of database schema design and efficient data retrieval techniques."
+      ],
       certificate: "/certificates/IBM__SQLCertificate__CognitiveClass.pdf"
     },
     {
       title: "AWS Academy Graduate - Cloud Foundations",
       company: "AWS Academy",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Built a strong foundation in cloud computing concepts including IaaS, PaaS, and SaaS models.",
+        "Explored AWS services, cloud architecture, and deployment strategies.",
+        "Understood scalability, cost optimization, and security in cloud-based systems."
+      ],
       certificate: "/certificates/AWS_Academy_Graduate__Cloud_Foundations.pdf"
     },
     {
       title: "DSA with Java",
       company: "Apna College",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Strengthened problem-solving skills using data structures like arrays, linked lists, trees, and graphs.",
+        "Implemented algorithms for sorting, searching, and recursion-based problem solving.",
+        "Developed a strong foundation for writing efficient and optimized code."
+      ],
       certificate: "/certificates/Java_DSA__ApnaCollege.pdf"
     },
     {
       title: "Frontend Developer (React)",
       company: "HackerRank",
       date: "Completed",
-      details: ["Mastered relational database concepts, complex queries, and data management."],
+      details: [
+        "Built dynamic and reusable UI components using React and modern JavaScript.",
+        "Worked with state management, props, and component-based architecture.",
+        "Focused on creating responsive, accessible, and performance-optimized user interfaces."
+      ],
       certificate: "/certificates/React_Certificate__HackerRank.pdf"
     },
-    
-    
+
+
   ];
 
   return (
@@ -102,7 +130,7 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
-                
+
                 {exp.certificate && (
                   <a
                     href={exp.certificate}

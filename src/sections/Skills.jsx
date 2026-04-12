@@ -6,7 +6,7 @@ import { Code2, Database, Layout, Server } from "lucide-react";
 export default function Skills() {
   const skillCategories = [
     { title: "Backend Systems", icon: Server, skills: ["Java", "Spring Boot", "Spring Security", "REST APIs"] },
-    { title: "Frontend Engineering", icon: Layout, skills: ["React", "JavaScript (ES6+)", "Tailwind CSS", "HTML/CSS"] },
+    { title: "Frontend Engineering", icon: Layout, skills: ["React", "JavaScript", "Tailwind CSS", "HTML/CSS"] },
     { title: "Database Architecture", icon: Database, skills: ["MongoDB", "MySQL"] },
     { title: "DevOps & Tools", icon: Code2, skills: ["Docker", "AWS", "Git/GitHub", "Render"] },
   ];
@@ -22,7 +22,7 @@ export default function Skills() {
       >
         <motion.div variants={fadeInUp} className="mb-16 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Engineering Arsenal</h2>
-          <p className="text-gray-400 max-w-2xl">The technologies and tools I use to build robust applications.</p>
+          <p className="text-gray-400 max-w-2xl">A carefully curated set of technologies and tools I use to design, build, and scale robust, high-performance applications.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
