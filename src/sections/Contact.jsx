@@ -24,6 +24,7 @@ export default function Contact() {
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
     formData.append("subject", "New Contact Message");
     formData.append("h-captcha-response", captchaToken);
+    formData.delete("g-recaptcha-response");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -44,7 +45,7 @@ export default function Contact() {
         setStatus('success');
         e.target.reset();
         
-        // Reset the captcha UI and state for the next message
+        // Reset the captcha UI
         setCaptchaToken("");
         if (captchaRef.current) {
           captchaRef.current.resetCaptcha();

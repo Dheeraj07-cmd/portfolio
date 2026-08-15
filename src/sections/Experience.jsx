@@ -33,17 +33,6 @@ export default function Experience() {
       certificate: "/certificates/JPMorgan__JobSimulation__Forage.pdf"
     },
     {
-      title: "Introduction to Cybersecurity",
-      company: "Cisco Networking Academy",
-      date: "Completed",
-      details: [
-        "Understood core cybersecurity principles including threats, vulnerabilities, and attack vectors.",
-        "Learned fundamentals of network security, encryption, and secure communication practices.",
-        "Developed awareness of protecting systems and data in real-world digital environments."
-      ],
-      certificate: "/certificates/Cybersecurity_Certificate__Cisco.pdf"
-    },
-    {
       title: "SQL and Relational Databases",
       company: "Cognitive Class",
       date: "Completed",
@@ -55,17 +44,6 @@ export default function Experience() {
       certificate: "/certificates/IBM__SQLCertificate__CognitiveClass.pdf"
     },
     {
-      title: "AWS Academy Graduate - Cloud Foundations",
-      company: "AWS Academy",
-      date: "Completed",
-      details: [
-        "Built a strong foundation in cloud computing concepts including IaaS, PaaS, and SaaS models.",
-        "Explored AWS services, cloud architecture, and deployment strategies.",
-        "Understood scalability, cost optimization, and security in cloud-based systems."
-      ],
-      certificate: "/certificates/AWS_Academy_Graduate__Cloud_Foundations.pdf"
-    },
-    {
       title: "DSA with Java",
       company: "Apna College",
       date: "Completed",
@@ -75,17 +53,6 @@ export default function Experience() {
         "Developed a strong foundation for writing efficient and optimized code."
       ],
       certificate: "/certificates/Java_DSA__ApnaCollege.pdf"
-    },
-    {
-      title: "Frontend Developer (React)",
-      company: "HackerRank",
-      date: "Completed",
-      details: [
-        "Built dynamic and reusable UI components using React and modern JavaScript.",
-        "Worked with state management, props, and component-based architecture.",
-        "Focused on creating responsive, accessible, and performance-optimized user interfaces."
-      ],
-      certificate: "/certificates/React_Certificate__HackerRank.pdf"
     },
 
 
